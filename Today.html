@@ -20,14 +20,26 @@ body{
   letter-spacing: 5px;
 }
 
-.days, .hours, .minutes, .seconds {
+.year, .month, .date, .day, .hours, .minutes, .seconds {
   display: inline-block;
   padding: 20px;
   width: 100px;
   border-radius: 5px;
 }
 
-.days {
+.year {
+  background: #EF2F3C;
+}
+
+.month {
+  background: #EF2F3C;
+}    
+        
+.date {
+  background: #EF2F3C;
+}
+        
+.day {
   background: #EF2F3C;
 }
 
@@ -88,15 +100,21 @@ body{
     
 <div id="timer">
 
-    <div class="days"> 
-        <div id="days" class="numbers "> </div>days</div> 
+    <div class="year"> 
+        <div id="year" class="numbers "> </div>year</div>
+    <div class="month"> 
+        <div id="month" class="numbers "> </div>month</div>
+    <div class="date"> 
+        <div id="date" class="numbers "> </div>date</div>
+    <div class="day"> 
+        <div id="day" class="numbers "> </div>day</div> 
       <div class="hours"> 
         <div  id="hours" class="numbers"> </div>hours</div> 
       <div class="minutes"> 
         <div  id="minutes" class="numbers"> </div>minutes</div> 
-      <div   class="seconds"> 
-        <div id="seconds" class="numbers"> </div>seconds</div> 
-      </div>
+   //   <div   class="seconds"> 
+   //     <div id="seconds" class="numbers"> </div>seconds</div> 
+   //   </div>
 
 </div>
 
@@ -117,16 +135,26 @@ let timer = setInterval(function() {
 
   // math
   //let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  let days = Math.floor(today / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  //let days = Math.floor(today / (1000 * 60 * 60 * 24));
+  //let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  //let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  //let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+let year = today.getFullYear(); // 년도
+let month = today.getMonth() + 1;  // 월
+let date = today.getDate();  // 날짜
+let day = today.getDay();  // 요일
+let hours = today.getHours(); // 시
+let minutes = today.getMinutes();  // 분
 
   // display
-  document.getElementById("days").innerHTML=days
+  document.getElementById("year").innerHTML=year
+  document.getElementById("month").innerHTML=month
+  document.getElementById("date").innerHTML=date
+  document.getElementById("day").innerHTML=day
   document.getElementById("hours").innerHTML=hours
   document.getElementById("minutes").innerHTML=minutes
-  document.getElementById("seconds").innerHTML=seconds
+  //document.getElementById("seconds").innerHTML=seconds
 
 
 
